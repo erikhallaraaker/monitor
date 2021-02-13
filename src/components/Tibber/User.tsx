@@ -1,22 +1,23 @@
 import { FC } from "react";
 import { useQuery, gql } from "@apollo/client";
 
-interface IUser {
-    viewer: {
-        name: string;
-    };
+interface QueryViewer {
+    viewer: Tibber.Viewer;
 }
 
 const USER = gql`
     query GetUser {
         viewer {
+            login
+            userId
             name
+            accountType
         }
     }
 `;
 
 const User: FC = () => {
-    const { loading, error, data } = useQuery<IUser>(USER);
+    const { loading, error, data } = useQuery<QueryViewer>(USER);
 
     if (loading) { return <p>Loading user...</p>; }
 

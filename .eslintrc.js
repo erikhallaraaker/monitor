@@ -103,6 +103,22 @@ module.exports = {
                 types: ["string"],
                 format: ["UPPER_CASE", "PascalCase", "camelCase"],
             },
+            {
+                selector: "typeParameter",
+                format: ["PascalCase"],
+                custom: {
+                    regex: "^T[A-Z]",
+                    match: false,
+                },
+            },
+            {
+                selector: "interface",
+                format: ["PascalCase"],
+                custom: {
+                    regex: "^I[A-Z]",
+                    match: false,
+                },
+            },
         ],
         "@typescript-eslint/no-confusing-non-null-assertion":           ["warn"],
         "@typescript-eslint/no-explicit-any":                           ["warn"],
