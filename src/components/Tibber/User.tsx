@@ -24,7 +24,7 @@ const User: FC = () => {
 
     return (
         <div>
-            {`Logged in as ${data?.viewer.name}`}
+            <p>{`Logged in as ${data?.viewer.name}`}</p>
         </div>
     );
 };

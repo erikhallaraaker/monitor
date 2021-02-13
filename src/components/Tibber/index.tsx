@@ -1,11 +1,13 @@
 import { FC } from "react";
+import { ApolloProvider } from "@apollo/client";
 
+import tibberClient from "./tibber-client";
 import User from "./User";
 
 const Tibber: FC = () => (
-    <div>
+    <ApolloProvider client={tibberClient}>
         <User />
-    </div>
+    </ApolloProvider>
 );
 
 export default Tibber;
