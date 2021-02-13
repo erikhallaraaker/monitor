@@ -1,6 +1,5 @@
 import webpack from "webpack";
 import { merge } from "webpack-merge";
-
 import path from "path";
 
 import common from "./webpack.common";

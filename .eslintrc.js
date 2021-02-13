@@ -12,7 +12,7 @@ module.exports = {
     },
     env: {
         browser: true,
-        es6: true,
+        es2020: true,
         node: true
     },
     settings: {
@@ -61,6 +61,7 @@ module.exports = {
         "@typescript-eslint/consistent-type-assertions":                ["error"],
         "@typescript-eslint/consistent-type-definitions":               ["error"],
         "@typescript-eslint/explicit-function-return-type":             ["warn"],
+        "@typescript-eslint/explicit-module-boundary-types":            ["off"],
         "@typescript-eslint/explicit-member-accessibility":             ["warn"],
         "@typescript-eslint/func-call-spacing":                         ["error"],
         "@typescript-eslint/indent":                                    ["warn", 4,
@@ -119,8 +120,7 @@ module.exports = {
             {
                 "newlines-between": "always",
                 "groups": [
-                    "external",
-                    ["builtin", "internal"],
+                    ["external", "builtin", "internal"],
                     ["sibling", "parent"]
                 ]
             }
@@ -150,7 +150,7 @@ module.exports = {
         "no-invalid-regexp":                                            ["error"],
         "no-irregular-whitespace":                                      ["error"],
         "no-lonely-if":                                                 ["error"],
-        "no-loops/no-loops":                                                ["warn"],
+        "no-loops/no-loops":                                            ["warn"],
         "no-mixed-spaces-and-tabs":                                     ["warn"],
         "no-multi-spaces":                                              ["warn"],
         "no-multiple-empty-lines":                                      ["warn",
@@ -228,9 +228,7 @@ module.exports = {
         "react-hooks/rules-of-hooks":                                   ["error"],
         "react/button-has-type":                                        ["error"],
         "react/function-component-definition":                          ["warn",
-            {
-                namedComponents: "arrow-function"
-            }
+            { namedComponents: "arrow-function" }
         ],
         "react/jsx-boolean-value":                                      ["warn", "never"],
         "react/jsx-closing-bracket-location":                           ["error",
@@ -240,9 +238,7 @@ module.exports = {
             }
         ],
         "react/jsx-curly-brace-presence":                               ["warn",
-            {
-                children: "ignore"
-            }
+            { children: "ignore" }
         ],
         "react/jsx-curly-spacing":                                      ["warn"],
         "react/jsx-equals-spacing":                                     ["error", "never"],
@@ -250,9 +246,8 @@ module.exports = {
         "react/jsx-first-prop-new-line":                                ["warn", "multiline"],
         "react/jsx-handler-names":                                      ["warn"],
         "react/jsx-max-depth":                                          ["warn",
-            {
-                max: 7
-            }],
+            { max: 7 }
+        ],
         "react/jsx-max-props-per-line":                                 ["warn",
             {
                 when: "multiline",
@@ -269,9 +264,8 @@ module.exports = {
         "react/jsx-no-useless-fragment":                                ["error"],
         "react/no-array-index-key":                                     ["error"],
         "react/jsx-one-expression-per-line":                            ["warn",
-            {
-                allow: "single-child"
-            }],
+            { allow: "single-child" }
+        ],
         "react/jsx-tag-spacing":                                        ["error",
             { beforeSelfClosing: "always" }
         ],
@@ -291,7 +285,7 @@ module.exports = {
         "react/no-did-update-set-state":                                ["error"],
         "react/no-unknown-property":                                    ["error"],
         "react/no-unused-prop-types":                                   ["error"],
-        "react/react-in-jsx-scope":                                     ["error"],
+        "react/react-in-jsx-scope":                                     ["off"],
         "rest-spread-spacing":                                          ["error", "never"],
         "semi":                                                         ["error", "always"],
         "semi-spacing":                                                 ["warn"],

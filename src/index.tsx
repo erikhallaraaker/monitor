@@ -1,16 +1,12 @@
-import React, { FC } from "react";
+import { StrictMode } from "react";
 import { render } from "react-dom";
 
-const App: FC = () => (
-    <h1>Yo!</h1>
-);
-
-console.log(process.env.TIBBER_API);
+import App from "./App";
 
 render(
-    <React.StrictMode>
+    <StrictMode>
         <App />
-    </React.StrictMode>,
+    </StrictMode>,
     document.querySelector("#root")
 );
 
