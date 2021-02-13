@@ -3,6 +3,7 @@ import ESLintPlugin from "eslint-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import Dotenv from "dotenv-webpack";
 
 import path from "path";
 
@@ -47,7 +48,8 @@ const config: webpack.Configuration = {
         new ForkTsCheckerWebpackPlugin({
             async: false
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new Dotenv()
     ]
 };
 

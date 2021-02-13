@@ -11,6 +11,7 @@ const devConfig: webpack.Configuration = {
     devServer: {
         contentBase: path.join(__dirname, "dist"),
         historyApiFallback: true,
+        clientLogLevel: "warning",
         port: 3000,
         hot: true
     }

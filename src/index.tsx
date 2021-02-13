@@ -5,6 +5,8 @@ const App: FC = () => (
     <h1>Yo!</h1>
 );
 
+console.log(process.env.TIBBER_API);
+
 render(
     <React.StrictMode>
         <App />
