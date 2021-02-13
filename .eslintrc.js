@@ -79,6 +79,36 @@ module.exports = {
                 }
             }
         ],
+        "@typescript-eslint/naming-convention":                         ["warn",
+            // TODO: Tweak these
+            {
+                selector: "variableLike",
+                format: ["camelCase", "PascalCase"],
+                leadingUnderscore: "allow"
+            },
+            {
+                selector: "memberLike",
+                modifiers: ["private"],
+                format: ["camelCase"],
+                leadingUnderscore: "require"
+            },
+            {
+                selector: "variable",
+                modifiers: ["const"],
+                types: ["string"],
+                format: ["UPPER_CASE"]
+            },
+            {
+                selector: "typeParameter",
+                format: ["PascalCase"],
+                prefix: ["T"]
+            },
+            {
+                selector: "interface",
+                format: ["PascalCase"],
+                prefix: ["I"]
+            }
+        ],
         "@typescript-eslint/no-confusing-non-null-assertion":           ["warn"],
         "@typescript-eslint/no-explicit-any":                           ["warn"],
         "@typescript-eslint/no-inferrable-types":                       ["warn"],
