@@ -8,23 +8,23 @@ module.exports = {
         sourceType: "module",
         tsconfigRootDir: __dirname,
         project: "./tsconfig.json",
-        createDefaultProgram: true
+        createDefaultProgram: true,
     },
     env: {
         browser: true,
         es2020: true,
-        node: true
+        node: true,
     },
     settings: {
         "react": {
             pragma: "React",
-            version: "detect"
+            version: "detect",
         },
         "import/resolver": {
             node: {
-                extensions: [".js", ".jsx", ".ts", ".tsx"]
-            }
-        }
+                extensions: [".js", ".jsx", ".ts", ".tsx"],
+            },
+        },
     },
     plugins: [
         "@typescript-eslint",
@@ -38,7 +38,7 @@ module.exports = {
         "react-hooks",
         "security",
         "radar",
-        "unicorn"
+        "unicorn",
     ],
     extends: [
         "eslint:recommended",
@@ -53,7 +53,7 @@ module.exports = {
         "plugin:react/recommended",
         "plugin:security/recommended",
         "plugin:radar/recommended",
-        "plugin:unicorn/recommended"
+        "plugin:unicorn/recommended",
 
     ],
     // Set rules to either "error", "warn" or "off"
@@ -65,49 +65,44 @@ module.exports = {
         "@typescript-eslint/explicit-member-accessibility":             ["off"],
         "@typescript-eslint/func-call-spacing":                         ["error"],
         "@typescript-eslint/indent":                                    ["warn", 4,
-            { SwitchCase: 1 }
+            { SwitchCase: 1 },
         ],
         "@typescript-eslint/member-delimiter-style":                    ["warn",
             {
                 multiline: {
                     delimiter: "semi",
-                    requireLast: true
+                    requireLast: true,
                 },
                 singleline: {
                     delimiter: "semi",
-                    requireLast: true
-                }
-            }
+                    requireLast: true,
+                },
+            },
         ],
         "@typescript-eslint/naming-convention":                         ["warn",
             // TODO: Tweak these
             {
                 selector: "variableLike",
                 format: ["camelCase", "PascalCase"],
-                leadingUnderscore: "allow"
+                leadingUnderscore: "allow",
             },
             {
                 selector: "memberLike",
                 modifiers: ["private"],
                 format: ["camelCase"],
-                leadingUnderscore: "require"
+                leadingUnderscore: "require",
+            },
+            {
+                selector: "variable",
+                modifiers: ["destructured"],
+                format: null,
             },
             {
                 selector: "variable",
                 modifiers: ["const"],
                 types: ["string"],
-                format: ["UPPER_CASE"]
+                format: ["UPPER_CASE", "PascalCase", "camelCase"],
             },
-            {
-                selector: "typeParameter",
-                format: ["PascalCase"],
-                prefix: ["T"]
-            },
-            {
-                selector: "interface",
-                format: ["PascalCase"],
-                prefix: ["I"]
-            }
         ],
         "@typescript-eslint/no-confusing-non-null-assertion":           ["warn"],
         "@typescript-eslint/no-explicit-any":                           ["warn"],
@@ -125,14 +120,22 @@ module.exports = {
         "block-scoped-var":                                             ["warn"],
         "block-spacing":                                                ["error", "always"],
         "brace-style":                                                  ["error", "1tbs",
-            { allowSingleLine: true }
+            { allowSingleLine: true },
         ],
         "camelcase":                                                    ["error",
-            { properties: "always" }
+            { properties: "always" },
         ],
-        "comma-dangle":                                                 ["warn", "never"],
+        "comma-dangle":                                                 ["warn",
+            {
+                arrays: "always-multiline",
+                objects: "always-multiline",
+                imports: "only-multiline",
+                exports: "only-multiline",
+                functions: "only-multiline",
+            },
+        ],
         "comma-spacing":                                                ["warn",
-            { before: false, after: true }
+            { before: false, after: true },
         ],
         "comma-style":                                                  ["warn"],
         "computed-property-spacing":                                    ["warn"],
@@ -151,25 +154,25 @@ module.exports = {
                 "newlines-between": "always",
                 "groups": [
                     ["external", "builtin", "internal"],
-                    ["sibling", "parent"]
-                ]
-            }
+                    ["sibling", "parent"],
+                ],
+            },
         ],
         "jsx-quotes":                                                   ["error", "prefer-double"],
         "key-spacing":                                                  ["warn"],
         "keyword-spacing":                                              ["warn"],
         "lines-between-class-members":                                  ["warn", "always",
-            { exceptAfterSingleLine: true }
+            { exceptAfterSingleLine: true },
         ],
         "new-cap":                                                      ["error"],
         "new-parens":                                                   ["error"],
         "newline-before-return":                                        ["error"],
         "newline-per-chained-call":                                     ["warn",
-            { ignoreChainWithDepth: 3 }
+            { ignoreChainWithDepth: 3 },
         ],
         "no-alert":                                                     ["error"],
         "no-console":                                                   ["warn",
-            { allow: ["warn", "error"] }
+            { allow: ["warn", "error"] },
         ],
         "no-const-assign":                                              ["error"],
         "no-dupe-class-members":                                        ["error"],
@@ -184,7 +187,7 @@ module.exports = {
         "no-mixed-spaces-and-tabs":                                     ["warn"],
         "no-multi-spaces":                                              ["warn"],
         "no-multiple-empty-lines":                                      ["warn",
-            { max: 1 }
+            { max: 1 },
         ],
         "no-redeclare":                                                 ["warn"],
         "no-this-before-super":                                         ["warn"],
@@ -200,10 +203,10 @@ module.exports = {
         "object-curly-newline":                                         ["warn"],
         "object-curly-spacing":                                         ["warn", "always"],
         "object-property-newline":                                      ["warn",
-            { allowAllPropertiesOnSameLine: true }
+            { allowAllPropertiesOnSameLine: true },
         ],
         "object-shorthand":                                             ["error", "always",
-            { avoidExplicitReturnArrows: true }
+            { avoidExplicitReturnArrows: true },
         ],
         "one-var":                                                      ["error", "never"],
         "optimize-regex/optimize-regex":                                ["warn"],
@@ -211,38 +214,38 @@ module.exports = {
             {
                 blankLine: "always",
                 prev: "*",
-                next: ["case", "class", "const", "block", "block-like", "default", "break", "export", "expression", "do", "for", "function", "if", "import", "let", "return", "switch", "try", "while"]
+                next: ["case", "class", "const", "block", "block-like", "default", "break", "export", "expression", "do", "for", "function", "if", "import", "let", "return", "switch", "try", "while"],
             },
             {
                 blankLine: "always",
                 prev: ["class", "const", "block", "block-like", "break", "export", "expression", "do", "for", "function", "if", "import", "let", "return", "switch", "try", "while"],
-                next: "*"
+                next: "*",
             },
             {
                 blankLine: "any",
                 prev: "expression",
-                next: ["expression", "break"]
+                next: ["expression", "break"],
             },
             {
                 blankLine: "any",
                 prev: "import",
-                next: "import"
+                next: "import",
             },
             {
                 blankLine: "any",
                 prev: "export",
-                next: "export"
+                next: "export",
             },
             {
                 blankLine: "any",
                 prev: ["let", "const"],
-                next: ["let", "const"]
+                next: ["let", "const"],
             },
             {
                 blankLine: "any",
                 prev: "case",
-                next: ["case", "return"]
-            }
+                next: ["case", "return"],
+            },
         ],
         "prefer-arrow-callback":                                        ["error"],
         "prefer-const":                                                 ["warn"],
@@ -258,17 +261,17 @@ module.exports = {
         "react-hooks/rules-of-hooks":                                   ["error"],
         "react/button-has-type":                                        ["error"],
         "react/function-component-definition":                          ["warn",
-            { namedComponents: "arrow-function" }
+            { namedComponents: "arrow-function" },
         ],
         "react/jsx-boolean-value":                                      ["warn", "never"],
         "react/jsx-closing-bracket-location":                           ["error",
             {
                 selfClosing: "tag-aligned",
-                nonEmpty: "tag-aligned"
-            }
+                nonEmpty: "tag-aligned",
+            },
         ],
         "react/jsx-curly-brace-presence":                               ["warn",
-            { children: "ignore" }
+            { children: "ignore" },
         ],
         "react/jsx-curly-spacing":                                      ["warn"],
         "react/jsx-equals-spacing":                                     ["error", "never"],
@@ -276,28 +279,28 @@ module.exports = {
         "react/jsx-first-prop-new-line":                                ["warn", "multiline"],
         "react/jsx-handler-names":                                      ["warn"],
         "react/jsx-max-depth":                                          ["warn",
-            { max: 7 }
+            { max: 7 },
         ],
         "react/jsx-max-props-per-line":                                 ["warn",
             {
                 when: "multiline",
-                maximum: 3
-            }
+                maximum: 3,
+            },
         ],
         "react/jsx-no-bind":                                            ["error",
             {
                 allowArrowFunctions: true,
                 allowBind: false,
-                ignoreRefs: true
-            }
+                ignoreRefs: true,
+            },
         ],
         "react/jsx-no-useless-fragment":                                ["error"],
         "react/no-array-index-key":                                     ["error"],
         "react/jsx-one-expression-per-line":                            ["warn",
-            { allow: "single-child" }
+            { allow: "single-child" },
         ],
         "react/jsx-tag-spacing":                                        ["error",
-            { beforeSelfClosing: "always" }
+            { beforeSelfClosing: "always" },
         ],
         "react/jsx-uses-vars":                                          ["error"],
         "react/jsx-wrap-multilines":                                    ["warn",
@@ -308,8 +311,8 @@ module.exports = {
                 arrow: "parens-new-line",
                 condition: "parens-new-line",
                 logical: "parens-new-line",
-                prop: "parens-new-line"
-            }
+                prop: "parens-new-line",
+            },
         ],
         "react/no-children-prop":                                       ["error"],
         "react/no-did-update-set-state":                                ["error"],
@@ -332,9 +335,9 @@ module.exports = {
             {
                 cases: {
                     kebabCase: true,
-                    pascalCase: true
-                }
-            }
+                    pascalCase: true,
+                },
+            },
         ],
         "unicorn/no-nested-ternary":                                    ["warn"],
         "unicorn/no-null":                                              ["off"],
@@ -343,18 +346,18 @@ module.exports = {
             whitelist: {
                 prod: true,
                 dev: true,
-                props: true
-            }
+                props: true,
+            },
         }],
-        "wrap-regex":                                                   ["error"]
+        "wrap-regex":                                                   ["error"],
     },
     overrides: [
         {
             files: ["*.js"],
             rules: {
                 "@typescript-eslint/no-var-requires":                   ["off"],
-                "@typescript-eslint/explicit-function-return-type":     ["off"]
-            }
-        }
-    ]
+                "@typescript-eslint/explicit-function-return-type":     ["off"],
+            },
+        },
+    ],
 };

@@ -13,8 +13,8 @@ const devConfig: webpack.Configuration = {
         clientLogLevel: "warning",
         port: 3000,
         hot: true,
-        overlay: true
-    }
+        overlay: true,
+    },
 };
 
 export default merge(common, devConfig);

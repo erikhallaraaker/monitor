@@ -8,7 +8,7 @@ const prodConfig: webpack.Configuration = {
     optimization: {
         mergeDuplicateChunks: true,
         runtimeChunk: {
-            name: (entrypoint: webpack.EntryObject): string => `runtime~${entrypoint.name}`
+            name: (entrypoint: webpack.EntryObject): string => `runtime~${entrypoint.name}`,
         },
         moduleIds: "deterministic",
         chunkIds: "deterministic",
@@ -27,11 +27,11 @@ const prodConfig: webpack.Configuration = {
 
                         return `npm.${packageName.replace("@", "")}`;
                     },
-                    chunks: "all"
-                }
-            }
-        }
-    }
+                    chunks: "all",
+                },
+            },
+        },
+    },
 };
 
 export default merge(common, prodConfig);

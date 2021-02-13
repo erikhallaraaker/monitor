@@ -8,12 +8,12 @@ import path from "path";
 
 const config: webpack.Configuration = {
     entry: {
-        app: path.resolve(__dirname, "src", "index.tsx")
+        app: path.resolve(__dirname, "src", "index.tsx"),
     },
     output: {
         filename: "scripts/[name].[chunkhash:8].js",
         chunkFilename: "scripts/[name].[chunkhash:8].js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "dist"),
     },
     module: {
         rules: [
@@ -26,30 +26,30 @@ const config: webpack.Configuration = {
                         presets: [
                             "@babel/preset-env",
                             "@babel/preset-react",
-                            "@babel/preset-typescript"
-                        ]
-                    }
-                }
-            }
-        ]
+                            "@babel/preset-typescript",
+                        ],
+                    },
+                },
+            },
+        ],
     },
     resolve: {
-        extensions: [".tsx", ".ts", ".js"]
+        extensions: [".tsx", ".ts", ".js"],
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: "src/index.html",
-            title: "monitor"
+            title: "monitor",
         }),
         new ESLintPlugin({
-            extensions: ["js", "jsx", "ts", "tsx"]
+            extensions: ["js", "jsx", "ts", "tsx"],
         }),
         new ForkTsCheckerWebpackPlugin({
-            async: false
+            async: false,
         }),
         new CleanWebpackPlugin(),
-        new Dotenv()
-    ]
+        new Dotenv(),
+    ],
 };
 
 export default config;
