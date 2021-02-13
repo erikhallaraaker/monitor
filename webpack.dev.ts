@@ -12,7 +12,8 @@ const devConfig: webpack.Configuration = {
         historyApiFallback: true,
         clientLogLevel: "warning",
         port: 3000,
-        hot: true
+        hot: true,
+        overlay: true
     }
 };
 

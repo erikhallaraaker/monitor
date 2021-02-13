@@ -62,7 +62,7 @@ module.exports = {
         "@typescript-eslint/consistent-type-definitions":               ["error"],
         "@typescript-eslint/explicit-function-return-type":             ["warn"],
         "@typescript-eslint/explicit-module-boundary-types":            ["off"],
-        "@typescript-eslint/explicit-member-accessibility":             ["warn"],
+        "@typescript-eslint/explicit-member-accessibility":             ["off"],
         "@typescript-eslint/func-call-spacing":                         ["error"],
         "@typescript-eslint/indent":                                    ["warn", 4,
             { SwitchCase: 1 }
@@ -89,7 +89,7 @@ module.exports = {
         "@typescript-eslint/type-annotation-spacing":                   ["error"],
         "array-bracket-spacing":                                        ["warn", "never"],
         "array-func/prefer-array-from":                                 ["warn"],
-        "arrow-body-style":                                             ["error", "as-needed"],
+        "arrow-body-style":                                             ["warn", "as-needed"],
         "arrow-parens":                                                 ["error", "as-needed"],
         "arrow-spacing":                                                ["error"],
         "block-scoped-var":                                             ["warn"],
@@ -285,6 +285,7 @@ module.exports = {
         "react/no-did-update-set-state":                                ["error"],
         "react/no-unknown-property":                                    ["error"],
         "react/no-unused-prop-types":                                   ["error"],
+        "react/prop-types":                                             ["off"],
         "react/react-in-jsx-scope":                                     ["off"],
         "rest-spread-spacing":                                          ["error", "never"],
         "semi":                                                         ["error", "always"],
@@ -300,16 +301,19 @@ module.exports = {
         "unicorn/filename-case":                                        ["error",
             {
                 cases: {
-                    camelCase: true,
+                    kebabCase: true,
                     pascalCase: true
                 }
             }
         ],
         "unicorn/no-nested-ternary":                                    ["warn"],
+        "unicorn/no-null":                                              ["off"],
+        "unicorn/prefer-spread":                                        ["warn"],
         "unicorn/prevent-abbreviations":                                ["warn", {
             whitelist: {
                 prod: true,
-                dev: true
+                dev: true,
+                props: true
             }
         }],
         "wrap-regex":                                                   ["error"]
