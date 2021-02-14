@@ -1,5 +1,7 @@
 import { FC } from "react";
 import { useQuery, gql } from "@apollo/client";
+import { Spin } from "antd";
+import CircleLoader from "react-spinners/CircleLoader";
 
 interface QueryViewer {
     viewer: Tibber.Viewer;
@@ -19,13 +21,14 @@ const USER = gql`
 const User: FC = () => {
     const { loading, error, data } = useQuery<QueryViewer>(USER);
 
-    if (loading) { return <p>Loading user...</p>; }
+    if (loading) { return <Spin />; }
 
-    if (error) { return <p>Error getting user :(</p>; }
+    if (error) { return <p>{`Error! ${error?.message}`}</p>; }
 
     return (
         <div>
             <p>{`Logged in as ${data?.viewer.name}`}</p>
+            <CircleLoader color="#BD10E0" />
         </div>
     );
 };

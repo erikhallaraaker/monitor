@@ -1,25 +1,38 @@
 import { Component, ErrorInfo, ReactNode } from "react";
+import { Result, Collapse } from "antd";
 
-interface IState {
-    hasError: boolean;
-    error: string | null;
+import "./ErrorBoundary.css";
+
+const { Panel } = Collapse;
+
+interface State {
+    error: Error | null;
 }
 
 export default class ErrorBoundary extends Component {
-    public state = { hasError: false, error: null };
-
-    static getDerivedStateFromError = (error: Error): IState => ({ hasError: true, error: error.stack ?? null })
+    public state: State = { error: null };
 
     componentDidCatch = (error: Error, errorInfo: ErrorInfo): void => {
-        console.error("Error:", error, errorInfo);
+        this.setState({ error, errorInfo });
     }
 
-    render = (): ReactNode => !this.state.hasError ? this.props.children : (
-        <>
-            <h1>Something went wrong.</h1>
-            <div>
-                <pre>{this.state.error}</pre>
-            </div>
-        </>
-    )
+    render = (): ReactNode => {
+        const { error } = this.state;
+
+        return !error ? this.props.children : (
+            <Result
+                status="error"
+                title={error.name}
+                subTitle={error.message}
+            >
+                <Collapse activeKey="1">
+                    <Panel header="Details" key="1" className="error-panel">
+                        <pre>
+                            {error.stack}
+                        </pre>
+                    </Panel>
+                </Collapse>
+            </Result>
+        );
+    }
 }
